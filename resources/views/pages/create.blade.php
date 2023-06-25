@@ -27,6 +27,24 @@
                 <div id="fileHelpId" class="form-text">Help text</div>
             </div>
 
+            <div class="mb-3">
+                <label for="project-categories" class="form-label">Categories</label>
+                <select class="form-select form-select-lg @error ('category_id') is invalid @enderror" name="category_id" id="project_categories">
+                    <option value="">Scegli una categoria</option>
+                    @foreach ($categories as $elem)
+                        <option value="{{$elem->id}}" @selected(old ('category_id') == $elem )></option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div>
+                @error ('category_id')
+                    <div class="alert alert-danger">
+                        {{$ message}}
+                    </div>
+                @enderror
+            </div>
+
             <button class="btn btn-primary">crea il post</button>
         </form>
 

@@ -7,3 +7,7 @@
 @section
     <h1>Progetto: {{$project->title}}</h1>
 @endsection
+
+<div>
+    {{$project->category->name}}
+</div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facedes\Storage;
+use App\Models\Admin\Category;
 
 use App\Models\Project;
 
@@ -23,7 +24,9 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('pages.create');
+        return view('pages.create', compact('categories'));
+
+        $categories = Category::all();
     }
 
     /**
@@ -70,7 +73,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('pages.edit', compact('project'));
+        $categories = Category::all();
+        return view('pages.edit', compact('project', 'categories'));
     }
 
     /**
