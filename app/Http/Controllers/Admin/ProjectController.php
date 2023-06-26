@@ -24,9 +24,9 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
+        $categories = Category::all();
         return view('pages.create', compact('categories'));
 
-        $categories = Category::all();
     }
 
     /**
@@ -62,6 +62,8 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project){
+        $categories = Category::all();
+
         return view('pages.show', compact('project', 'categories'));
     }
 

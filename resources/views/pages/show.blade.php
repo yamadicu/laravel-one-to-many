@@ -8,6 +8,6 @@
     <h1>Progetto: {{$project->title}}</h1>
     
     <div>
-        {{$project->category->name}}
+        {{$project->categories->slug}}
     </div>
 @endsection
