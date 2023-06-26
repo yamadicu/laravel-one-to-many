@@ -4,10 +4,10 @@
     Mattia's Project| Singolo progetto
 @endsection
 
-@section
+@section('content')
     <h1>Progetto: {{$project->title}}</h1>
+    
+    <div>
+        {{$project->category->name}}
+    </div>
 @endsection
-
-<div>
-    {{$project->category->name}}
-</div>

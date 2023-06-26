@@ -19,7 +19,7 @@
     
     <div class="container">
 
-        <form action="{{route('pages.update', $project)}}" method="POST">
+    <form action="{{route ('pages.update', $project)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">

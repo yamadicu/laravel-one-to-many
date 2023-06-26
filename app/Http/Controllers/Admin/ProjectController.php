@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-use Illuminate\Support\Facedes\Storage;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\Category;
 
 use App\Models\Project;
@@ -62,7 +62,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project){
-        return view('pages.show', compact('project'));
+        return view('pages.show', compact('project', 'categories'));
     }
 
         /**

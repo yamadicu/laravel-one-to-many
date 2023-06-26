@@ -13,7 +13,7 @@
     @foreach ($project as $elem)
 
         <div class="card m-4 col-2">
-            <img class="card-img-top" src="{{asset('storage/'. $post->cover_image)}}" alt="Title">
+            <img class="card-img-top" src="{{asset('storage/'. $elem->cover_image)}}" alt="Title">
             <div class="card-body">
                 <a href="{{route('pages.show', $elem)}}">
                     <h4>{{$elem->title}}</h4>
