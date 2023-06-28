@@ -15,15 +15,15 @@
         <div class="card m-4 col-2">
             <img class="card-img-top" src="{{asset('storage/'. $elem->cover_image)}}" alt="Title">
             <div class="card-body">
-                <a href="{{route('pages.show', $elem)}}">
+                <a href="{{route('pages.show', $elem->id)}}">
                     <h4>{{$elem->title}}</h4>
                 </a>
                 <p class="card-text">progetto numero: {{$elem->id}}</p>
                 <p class="card-text">{{$elem->content}}</p>
-                <a href="{{route('pages.edit', $elem)}}">modifica progetto</a>
+                <a href="{{route('pages.edit', $elem->id)}}">modifica progetto</a>
             </div>
 
-            <form action="{{ route('pages.destroy', $elem)}}" method="POST">
+            <form action="{{ route('pages.destroy', $elem->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button onclick="return confirm('sei sicuro di voler cancellare il progetto?')" type="submit" class="btn btn-danger mb-2">cancella progetto</button>

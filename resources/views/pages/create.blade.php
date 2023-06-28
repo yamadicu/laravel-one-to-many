@@ -32,7 +32,7 @@
                 <select class="form-select form-select-lg @error ('category_id') is invalid @enderror" name="category_id" id="project_categories">
                     <option value="">Scegli una categoria</option>
                     @foreach ($categories as $elem)
-                        <option value="{{$elem->id}}" @selected(old ('category_id') == $elem )></option>
+                    <option value="{{$elem->id}}" {{ old('category_id') == $elem->id ? 'selected' : '' }}>{{$elem->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -40,7 +40,7 @@
             <div>
                 @error ('category_id')
                     <div class="alert alert-danger">
-                        {{$ message}}
+                        {{$message}}
                     </div>
                 @enderror
             </div>

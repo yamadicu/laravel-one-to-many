@@ -61,10 +61,9 @@ class ProjectController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project){
-        $categories = Category::all();
-
-        return view('pages.show', compact('project', 'categories'));
+    public function show($id){
+        $project = Project::findOrFail($id);
+        return view('pages.show', compact('project'));
     }
 
         /**
@@ -73,8 +72,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
+        $project = Project::findOrFail($id);
         $categories = Category::all();
         return view('pages.edit', compact('project', 'categories'));
     }
@@ -86,13 +86,15 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $Project
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(UpdateProjectRequest $request, $id)
     {
         $form_data = $request->validated();
 
             $slug = Project::generateSlug($request->title);
 
             $form_data['slug'] = $slug;
+
+            $project = Project::findOrFail($id);
 
             $project->update($form_data);
 
@@ -105,8 +107,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $Project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
+        $project = Project::findOrFail($id);
         $project->delete();
         return redirect()-> route('pages.index');
     }
