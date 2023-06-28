@@ -7,5 +7,4 @@
 @section('content')
     <h1>Progetto: {{$project->title}}</h1>
     <h3>{{$project->slug}}</h3>
-    <h3>{{$project->categories->name}}</h3>
 @endsection
